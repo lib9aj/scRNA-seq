@@ -1,0 +1,40 @@
+How to use HPC to run Cellranger
+
+#Connect to HPC
+ssh
+
+#your path
+cd /scratch/lib9aj/
+ls
+pwd
+
+#fastq
+
+Samplename_S1_L001_R1_001.fastq.gz
+Samplename_S1_L001_R2_001.fastq.gz
+
+# create a cellranger.sh
+
+vim cellranger.sh
+
+# bsub -L /bin/bash -W 40:00 -n 4 -R "span[ptile=4]" -M 128000 -e %J.err -o %J.out ./cellranger_63.sh
+module load cellranger/5.0.1
+cellranger count --id=63 --transcriptome=/database/cellranger/mm10-v2 --fastqs=./fastqs
+
+# give access for first run
+
+chmod +x cellranger.sh
+
+#Submit
+
+bsub -L /bin/bash -W 40:00 -n 4 -R "span[ptile=4]" -M 128000 -e %J.err -o %J.out ./cellranger_v5.sh
+
+#Check progress
+
+bjobs -a
+
+
+
+
+
+
