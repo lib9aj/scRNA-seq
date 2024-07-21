@@ -1,5 +1,6 @@
 
 ID	Accession	Run title	BioProject accession
+
 1	CRR794359	uterus from female mouse at 2.5dpc,RUN 1	PRJCA017435
 2	CRR794360	uterus from female mouse at 2.5dpc,RUN 2	PRJCA017435
 3	CRR794361	uterus from female mouse at 2.5dpc,RUN 3	PRJCA017435
