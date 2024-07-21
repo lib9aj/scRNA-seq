@@ -3,7 +3,7 @@ Run cellranger on HPC
 #Connect to HPC
 ssh ...
 
-# getyour path
+# get your path
 cd /scratch/lib9aj/
 ls
 pwd
