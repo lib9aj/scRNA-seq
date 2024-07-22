@@ -1,0 +1,22 @@
+
+ID	Accession	Run title	BioProject accession
+
+1	CRR794359	uterus from female mouse at 2.5dpc,RUN 1	PRJCA017435
+2	CRR794360	uterus from female mouse at 2.5dpc,RUN 2	PRJCA017435
+3	CRR794361	uterus from female mouse at 2.5dpc,RUN 3	PRJCA017435
+4	CRR794362	uterus from female mouse at 2.5dpc,RUN 4	PRJCA017435
+
+5	CRR794363	uterus from female mouse at 3.5dpc,RUN 1	PRJCA017435
+6	CRR794364	uterus from female mouse at 3.5dpc,RUN 2	PRJCA017435
+7	CRR794365	uterus from female mouse at 3.5dpc,RUN 3	PRJCA017435
+8	CRR794366	uterus from female mouse at 3.5dpc,RUN 4	PRJCA017435
+
+9	CRR794367	uterus from female mouse at 4.0dpc,RUN 1	PRJCA017435
+10	CRR794368	uterus from female mouse at 4.0dpc,RUN 2	PRJCA017435
+11	CRR794369	uterus from female mouse at 4.0dpc,RUN 3	PRJCA017435
+12	CRR794370	uterus from female mouse at 4.0dpc,RUN 4	PRJCA017435
+
+13	CRR794371	uterus from female mouse at 4.5dpc,RUN 1	PRJCA017435
+14	CRR794372	uterus from female mouse at 4.5dpc,RUN 2	PRJCA017435
+15	CRR794373	uterus from female mouse at 4.5dpc,RUN 3	PRJCA017435
+16	CRR794374	uterus from female mouse at 4.5dpc,RUN 4	PRJCA017435
