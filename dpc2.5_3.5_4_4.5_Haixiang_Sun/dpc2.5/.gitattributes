@@ -1,1 +1,2 @@
 matrix.mtx.gz filter=lfs diff=lfs merge=lfs -text
+filtered_feature_bc_matrix.h5 filter=lfs diff=lfs merge=lfs -text
