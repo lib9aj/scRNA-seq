@@ -1,0 +1,55 @@
+
+
+ID	Accession	Run title	                                              
+
+1	CRR794359	uterus from female mouse at 2.5dpc,RUN 1	
+2	CRR794360	uterus from female mouse at 2.5dpc,RUN 2	
+3	CRR794361	uterus from female mouse at 2.5dpc,RUN 3	
+
+5	                63	uterus from female mouse at 3.5dpc,RUN 1	
+6	                64	uterus from female mouse at 3.5dpc,RUN 2	
+7	                65	uterus from female mouse at 3.5dpc,RUN 3	
+8	                66	uterus from female mouse at 3.5dpc,RUN 4	
+
+9	                67	uterus from female mouse at 4.0dpc,RUN 1	
+10	                68	uterus from female mouse at 4.0dpc,RUN 2	
+11	                69	uterus from female mouse at 4.0dpc,RUN 3	
+12	                70	uterus from female mouse at 4.0dpc,RUN 4	
+
+13	                71	uterus from female mouse at 4.5dpc,RUN 1	
+14	                72	uterus from female mouse at 4.5dpc,RUN 2	
+15	                73	uterus from female mouse at 4.5dpc,RUN 3	
+16	                74	uterus from female mouse at 4.5dpc,RUN 4	
+
+
+run, h5 
+3, dpc2.5_filtered_feature_bc_matrix.h5 
+4, dpc3.5_filtered_feature_bc_matrix.h5
+4, dpc4_filtered_feature_bc_matrix.h5
+4, dpc4.5_filtered_feature_bc_matrix.h5
+
+
+
+From Article
+
+ID	Accession	          Run title	                                                         BioProject accession
+
+1	CRR794359	uterus from female mouse at 2.5dpc,RUN 1	PRJCA017435
+2	CRR794360	uterus from female mouse at 2.5dpc,RUN 2	PRJCA017435
+3	CRR794361	uterus from female mouse at 2.5dpc,RUN 3	PRJCA017435
+4	CRR794362	uterus from female mouse at 2.5dpc,RUN 4	PRJCA017435
+
+5	CRR794363	uterus from female mouse at 3.5dpc,RUN 1	PRJCA017435
+6	CRR794364	uterus from female mouse at 3.5dpc,RUN 2	PRJCA017435
+7	CRR794365	uterus from female mouse at 3.5dpc,RUN 3	PRJCA017435
+8	CRR794366	uterus from female mouse at 3.5dpc,RUN 4	PRJCA017435
+
+9	CRR794367	uterus from female mouse at 4.0dpc,RUN 1	PRJCA017435
+10	CRR794368	uterus from female mouse at 4.0dpc,RUN 2	PRJCA017435
+11	CRR794369	uterus from female mouse at 4.0dpc,RUN 3	PRJCA017435
+12	CRR794370	uterus from female mouse at 4.0dpc,RUN 4	PRJCA017435
+
+13	CRR794371	uterus from female mouse at 4.5dpc,RUN 1	PRJCA017435
+14	CRR794372	uterus from female mouse at 4.5dpc,RUN 2	PRJCA017435
+15	CRR794373	uterus from female mouse at 4.5dpc,RUN 3	PRJCA017435
+16	CRR794374	uterus from female mouse at 4.5dpc,RUN 4	PRJCA017435
