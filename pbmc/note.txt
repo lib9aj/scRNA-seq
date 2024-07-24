@@ -1,0 +1,2 @@
+
+1. When I get the file from cellranger, how to start to analyze in R?
