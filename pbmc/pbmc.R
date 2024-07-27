@@ -40,7 +40,6 @@ dense.size / sparse.size
 ###(2) Standard pre-processing workflow
 # The [[ operator can add columns to object metadata. This is a great place to stash QC stats
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
-
 # Show QC metrics for the first 5 cells
 head(pbmc@meta.data, 5)
 
