@@ -1,6 +1,18 @@
 
+###Seurat - Guided Clustering Tutorial
+#(1) Setup the Seurat Object
+#(2) Standard pre-processing workflow
+#(3) Normalizing the data
+#(4) Identification of highly variable features (feature selection)
+#(5) Scaling the data
+#(6) Perform linear dimensional reduction
+#(7) Determine the ‘dimensionality’ of the dataset
+#(8) Cluster the cells
+#(9) Run non-linear dimensional reduction (UMAP/tSNE)
+#(10) Finding differentially expressed features (cluster biomarkers)
+#(11) Assigning cell type identity to clusters
 
-### Setup the Seurat Object
+###(1) Setup the Seurat Object
 #We next use the count matrix to create a Seurat object. The object serves as a container that contains both data 
 #(like the count matrix) and analysis (like PCA, or clustering results) for a single-cell dataset. 
 
@@ -26,7 +38,7 @@ print(sparse.size)
 dense.size / sparse.size
 
 
-### Standard pre-processing workflow
+###(2) Standard pre-processing workflow
 
 # The [[ operator can add columns to object metadata. This is a great place to stash QC stats
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
@@ -48,7 +60,7 @@ plot1 + plot2
 pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 5)
 
 
-### Normalizing the data
+###(3) Normalizing the data
 
 # this step is equal to pbmc <- NormalizeData(pbmc)
 pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
@@ -57,7 +69,7 @@ pbmc[["RNA"]]$data
 
 
 
-### Identification of highly variable features (feature selection)
+###(4) Identification of highly variable features (feature selection)
 pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
 
 # Identify the 10 most highly variable genes
@@ -69,7 +81,16 @@ plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE, xnudge = 0, ynu
 plot1 + plot2
 
 
-### Scaling the data
+###(5) Scaling the data
+#Next, we apply a linear transformation (‘scaling’) that is a standard pre-processing step prior to dimensional reduction techniques like PCA. 
+
+#The ScaleData() function:
+#1. Shifts the expression of each gene, so that the mean expression across cells is 0
+#2. Scales the expression of each gene, so that the variance across cells is 1
+    #This step gives equal weight in downstream analyses, so that highly-expressed genes do not dominate
+#3. The results of this are stored in pbmc[["RNA"]]$scale.data
+#4. By default, only variable features are scaled.
+#5. You can specify the features argument to scale additional features
 
 all.genes <- rownames(pbmc)
 pbmc <- ScaleData(pbmc, features = all.genes)
@@ -77,7 +98,7 @@ pbmc <- ScaleData(pbmc, features = all.genes)
 pbmc[["RNA"]]$scale.data
 
 
-### Perform linear dimensional reduction
+###(6) Perform linear dimensional reduction
 pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
 
 # Examine and visualize PCA results a few different ways
@@ -92,9 +113,7 @@ DimHeatmap(pbmc, dims = 1, cells = 500, balanced = TRUE)
 DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
 
 
-###Determine the ‘dimensionality’ of the dataset
-
-
+###(7) Determine the ‘dimensionality’ of the dataset
 ElbowPlot(pbmc)
 
 # another way--- Perform JackStraw analysis to assess the significance of principal components
@@ -102,7 +121,7 @@ pbmc <- JackStraw(pbmc, num.replicate = 100)
 pbmc <- ScoreJackStraw(pbmc, dims = 1:20)
 JackStrawPlot(pbmc, dims = 1:20)
 
-###Cluster the cells
+###(8) Cluster the cells
 pbmc <- FindNeighbors(pbmc, dims = 1:10)
 pbmc <- FindClusters(pbmc, resolution = 0.5)
 
@@ -110,7 +129,7 @@ pbmc <- FindClusters(pbmc, resolution = 0.5)
 head(Idents(pbmc), 5) 
 
 
-###Run non-linear dimensional reduction (UMAP/tSNE)
+###(9) Run non-linear dimensional reduction (UMAP/tSNE)
 
 pbmc <- RunUMAP(pbmc, dims = 1:10)
 
@@ -124,7 +143,7 @@ ls()
 saveRDS(pbmc, file = "/Users/lib9aj/pbmc_tutorial.rds")
 
 
-###Finding differentially expressed features (cluster biomarkers)
+###(10) Finding differentially expressed features (cluster biomarkers)
 # find all markers of cluster 2
 cluster2.markers <- FindMarkers(pbmc, ident.1 = 2)
 head(cluster2.markers, n = 5)
@@ -161,7 +180,7 @@ pbmc.markers %>%
 DoHeatmap(pbmc, features = top10$gene) + NoLegend()
 
 
-###Assigning cell type identity to clusters
+###(11) Assigning cell type identity to clusters
 new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", "FCGR3A+ Mono",
                      "NK", "DC", "Platelet")
 names(new.cluster.ids) <- levels(pbmc)
