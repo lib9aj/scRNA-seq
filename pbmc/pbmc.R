@@ -15,7 +15,6 @@
 ###(1) Setup the Seurat Object
 #We next use the count matrix to create a Seurat object. The object serves as a container that contains both data 
 #(like the count matrix) and analysis (like PCA, or clustering results) for a single-cell dataset. 
-
 library(dplyr)
 library(Seurat)
 library(patchwork)
