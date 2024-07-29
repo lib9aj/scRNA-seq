@@ -1,37 +1,37 @@
-Run cellranger on HPC
 
-#Connect to HPC
+Using Terminal to run cellranger on HPC
+
+#1.Connect HPC network
 ssh username@HOSTNAME
 
-# get your path
+#2.Set your path
 cd /scratch/lib9aj/
 ls
 pwd
 
-#fastq format of 10x genomics
+#3.Correct fastq format of 10x genomics
 Samplename_S1_L001_R1_001.fastq.gz
 Samplename_S1_L001_R2_001.fastq.gz
 
-# create a cellranger.sh script
+#4.Create a cellranger.sh script
 
 vim cellranger.sh
-------
+--------------------------------------------------------------------------------------------------
 # bsub -L /bin/bash -W 40:00 -n 4 -R "span[ptile=4]" -M 128000 -e %J.err -o %J.out ./cellranger.sh
 module load cellranger/5.0.1
 cellranger count --id=63 --transcriptome=/database/cellranger/mm10-v2 --fastqs=./fastqs
-------
-
+--------------------------------------------------------------------------------------------------
 # give access for first run
 chmod +x cellranger.sh
 
-#Submit
-
+#5.Submit your job
 bsub -L /bin/bash -W 40:00 -n 4 -R "span[ptile=4]" -M 128000 -e %J.err -o %J.out ./cellranger.sh
 
-#Check progress
-
+#6.Check progress
 bjobs -a
 
+#7.Copy data from HPC to local
+scp -r lib9aj@bmiclusterp2.chmcres.cchmc.org:/scratch/lib9aj/65 /Volumes/..
 
 
 
