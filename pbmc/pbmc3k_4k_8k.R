@@ -42,4 +42,3 @@ unique (sapply (X = strsplit(colnames(pbmc.big), split = "_"), FUN = "[", 1))
 
 table(pbmc.big$orig.ident)
 
-
